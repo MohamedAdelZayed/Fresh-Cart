@@ -82,7 +82,8 @@ export default function Login() {
       </Helmet>
     
 
-       <FormTitle title = {"Login Now"} />
+   
+      <FormTitle title = {"Login Now"} />
 
            
 
@@ -202,7 +203,7 @@ export default function Login() {
 
 {/* people image */}
 <div className = "mt-5">
-  <img src = {loginPhoto} alt="loginPhoto" className = "w-1/2 mx-auto" />
+  <img src = {loginPhoto} alt="loginPhoto" className = " w-full md:w-1/2 mx-auto" />
 </div>
 
 

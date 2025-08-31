@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 
 import { FiLoader } from "react-icons/fi";
 import { Helmet } from "react-helmet";
+import FormTitle from "../FormTitle/FormTitle";
 
 
 export default function SignUp() {
@@ -89,12 +90,9 @@ export default function SignUp() {
          <Helmet>
            <title>SignUp</title>
          </Helmet>
-        
-    
-           <div className=' flex items-center justify-center font-bold text-emerald-500 text-center text-3xl mb-5 mt-5.5' >
-              <h2> Register Now</h2> 
-              <FaRegUserCircle  className="text-emerald-500 fa-regular fa-circle-user ml-2.5"/>
-           </div>
+
+
+          <FormTitle title = {'Register Now'} />
     
                
     

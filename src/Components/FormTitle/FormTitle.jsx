@@ -5,7 +5,7 @@ export default function FormTitle({title}) {
   return (
     <>
 
-      <div className=' flex items-center justify-center font-bold text-emerald-500 text-center text-3xl mb-5 mt-5.5' >
+      <div className=' flex items-center justify-center font-bold text-emerald-500 text-center text-3xl mb-5 mt-1.5' >
              
               <h2> {title}</h2> 
              

@@ -89,7 +89,7 @@ export default function Orders() {
       <div key={order.id} className="mb-10 rounded-2xl border border-gray-200 shadow-md overflow-hidden bg-gradient-to-br from-gray-50 to-white">
       
           {/* Order Header */}
-          <div className="bg-gray-100 px-6 py-4 border-b border-gray-200">
+          <div className="bg-gray-100 px-3 py-4 border-b border-gray-200">
       
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
       
@@ -109,7 +109,7 @@ export default function Orders() {
       
               </div>
 
-              <div className = "text-center">
+              <div className = "  text-center">
       
                 <h3 className="text-sm font-semibold text-gray-700 mb-1">
                   Order ID
@@ -119,7 +119,7 @@ export default function Orders() {
       
               </div>
 
-              <div className = "text-center">
+              <div className = " md:text-center">
       
                 <h3 className="text-sm font-semibold text-gray-700 mb-1">
                   Payment Type
@@ -131,7 +131,7 @@ export default function Orders() {
       
               </div>
 
-              <div className = "md:text-center">
+              <div className = " text-center">
       
                 <h3 className="text-sm font-semibold text-gray-700 mb-1">
                   Total Paid
@@ -158,7 +158,7 @@ export default function Orders() {
 
               <div
                 key={prodd._id}
-                className="p-4 sm:p-5 grid grid-cols-2 md:grid-cols-4 gap-6 items-center hover:bg-gray-50 transition"
+                className="p-3 sm:p-5 grid grid-cols-2 md:grid-cols-4 gap-6 items-center hover:bg-gray-50 transition"
               >
               
                 {/* Product Info */}
