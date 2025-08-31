@@ -227,42 +227,37 @@ export default function Navbar() {
 
 
           {/* Mobile menu */}
-          {openMenu && (
-           
-            <div className="flex md:hidden max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50">
-            
-              {/* Close icon */}
-              <button
-                onClick={() => setopenMenu(false)}
-                className="lg:hidden fixed top-2 right-1 z-[100] rounded-full bg-[#F7F7FB] w-12 h-12 flex items-center justify-center border border-gray-200 cursor-pointer"
-              >
+              {openMenu && (
+  <div className="flex md:hidden fixed inset-0 z-50">
 
-                <IoMdClose className="w-6 h-6" />
+    {/* Overlay */}
+    <div
+      className="fixed inset-0 bg-black opacity-40"
+      onClick={() => setopenMenu(false)}
+    />
 
-              </button>
+    {/* Close icon */}
+    <button
+      onClick={() => setopenMenu(false)}
+      className="fixed top-4 right-4 z-[100] rounded-full bg-[#F7F7FB] w-12 h-12 flex items-center justify-center border border-gray-200 cursor-pointer"
+    >
+      <IoMdClose className="w-6 h-6" />
+    </button>
 
-              <ul className="bg-white flex flex-col gap-x-8 space-y-3 fixed w-2/3 min-w-[300px] max-lg:top-0 left-0 py-4 h-full shadow-md overflow-auto z-50">
-            
-                <li className="mb-6 hidden max-lg:block px-4">
-            
-                  {/* logo on mobile */}
-                  <a>
-                    
-                    <img
-                      src={logo}
-                      className="h-8 w-auto max-w-[150px]"
-                      alt="FreshCart Logo"
-                    />
+    {/* Menu */}
+    <ul className="bg-white flex flex-col gap-3 fixed left-0 top-0 w-2/3 min-w-[300px] h-full shadow-md overflow-auto z-50 py-6">
 
-                  </a>
+      {/* Mobile logo */}
+      <li className="px-4 mb-6">
+        <a>
+          <img src={logo} className="h-8 w-auto max-w-[150px]" alt="FreshCart Logo" />
+        </a>
+      </li>
 
-                </li>
-
-                {/* Links inside mobile menu */}
-
-                <div className="px-6">
-
-                  <li className="border-b border-gray-300 py-3">
+      {/* Menu links */}
+      <div className="px-6 flex flex-col gap-3 flex-1">
+    
+        <li className="border-b border-gray-300 py-3">
                    
                     <NavLink to = '/' 
                     
@@ -275,72 +270,55 @@ export default function Navbar() {
                     
                   </li>
 
-                  <li className="border-b border-gray-300 py-3">
-                    <NavLink to = '/Products' className="text-slate-900 block font-medium text-[15px]">
-                      Products
-                    </NavLink>
-                  </li>
+        <li className="border-b border-gray-300 py-3">
+          <NavLink to="/Products" className="block text-slate-900 font-medium text-[15px]">
+            Products
+          </NavLink>
+        </li>
 
-                  <li className="border-b border-gray-300 py-3">
-                    <NavLink to = '/categories' className="text-slate-900 block font-medium text-[15px]">
-                      Categories
-                    </NavLink>
-                  </li>
+        <li className="border-b border-gray-300 py-3">
+          <NavLink to="/categories" className="block text-slate-900 font-medium text-[15px]">
+            Categories
+          </NavLink>
+        </li>
 
-                  <li className="border-b border-gray-300 py-3">
-                    <NavLink to = '/brands' className="text-slate-900 block font-medium text-[15px]">
-                      Brands
-                    </NavLink>
-                  </li>
+        <li className="border-b border-gray-300 py-3">
+          <NavLink to="/brands" className="block text-slate-900 font-medium text-[15px]">
+            Brands
+          </NavLink>
+        </li>
 
-                  <li className="border-b border-gray-300 py-3">
-                    <NavLink to = '/orders' className="text-slate-900 block font-medium text-[15px]">
-                      Orders
-                    </NavLink>
-                  </li>
+        <li className="border-b border-gray-300 py-3">
+          <NavLink to="/allorders" className="block text-slate-900 font-medium text-[15px]">
+            Orders
+          </NavLink>
+        </li>
+      </div>
 
-                  {/* logOut Btn */}
-                   <li>
-                   
-                   <button
-                    onClick={() => {
-                    
-                      logOut(),
-                      
-                      setopenMenu(false) }
-                    
-                    }
-                    
-                      className="cursor-pointer rounded-full text-gray-700 transition flex items-center gap-3 py-3 font-bold"
+      {/* Logout button at the bottom */}
+      <li className="px-6 mt-auto">
+        <button
+          onClick={() => {
+            logOut();
+            setopenMenu(false);
+          }}
+          className="w-full cursor-pointer rounded-full text-gray-700 transition flex items-center justify-center gap-3 py-3 font-bold border border-gray-300"
+        >
+          Logout <LuLogOut className="text-xl" />
+        </button>
+      </li>
 
-                   >
-       
-                    Logout <LuLogOut className="text-xl" />
-       
-                   </button>
-
-                  </li>
-
-                </div>
-
-                <li>
-
-                  {/* social icons */}
-                  <div className="flex md:hidden space-x-4 mt-7 justify-center">
-
-                    <FaFacebook className="cursor-pointer hover:text-emerald-500" />
-                    <FaInstagram className="cursor-pointer hover:text-emerald-500" />
-                    <FaTwitter className="cursor-pointer hover:text-emerald-500" />
-                  
-                  </div>
-
-                </li>
-
-              </ul>
-
-            </div>
-
-        )}
+      {/* Social icons */}
+      <li className="mt-4 px-6">
+        <div className="flex justify-center space-x-4 md:hidden">
+          <FaFacebook className="cursor-pointer hover:text-emerald-500" />
+          <FaInstagram className="cursor-pointer hover:text-emerald-500" />
+          <FaTwitter className="cursor-pointer hover:text-emerald-500" />
+        </div>
+      </li>
+    </ul>
+  </div>
+)}
         
 
         </div>
