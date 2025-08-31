@@ -28,6 +28,7 @@ import Orders from './Components/Orders/Orders';
 import CategoryProducts from './Components/CategoryProducts/CategoryProducts';
 import BrandProducts from './Components/BrandProducts/BrandProducts';
 import { TokenStore } from './Store/useTokenStore';
+import NotFound from './Components/NotFound/NotFound';
 
 
 
@@ -66,6 +67,8 @@ const routes = createBrowserRouter([
     { path : "categoryproducts/:categoryName" , element : <ProtectedRoute> <CategoryProducts/> </ProtectedRoute> }, 
 
     { path : "BrandProducts/:brandName" , element : <ProtectedRoute> <BrandProducts/> </ProtectedRoute> }, 
+    
+        { path : "*" , element : <NotFound></NotFound> }, 
 
  ] }
 
