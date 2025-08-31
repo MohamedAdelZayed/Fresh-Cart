@@ -65,7 +65,7 @@ export default function MainSlider() {
       </div>
 
       {/* Right stacked images */}
-      <div className="w-1/4 flex flex-col gap-2 h-full">
+      <div className="w-1/4 flex flex-col gap-1 h-full md:pb-1">
         
         <img
           src={phot2}
