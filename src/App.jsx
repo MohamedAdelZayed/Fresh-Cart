@@ -14,7 +14,7 @@ import VerifyCode from './Components/VerifyCode/VerifyCode';
 import UpdatePass from './Components/UpdatePass/UpdatePass'; 
 
 import { QueryClientProvider } from '@tanstack/react-query';
-import { QueryClient } from './../node_modules/@tanstack/query-core/src/queryClient';
+import { QueryClient } from '@tanstack/react-query';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import AuthRoute from './Components/AuthRoute/AuthRoute';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
@@ -27,6 +27,7 @@ import Payform from './Components/Payform/Payform';
 import Orders from './Components/Orders/Orders';
 import CategoryProducts from './Components/CategoryProducts/CategoryProducts';
 import BrandProducts from './Components/BrandProducts/BrandProducts';
+import { TokenStore } from './Store/useTokenStore';
 
 
 
@@ -75,6 +76,8 @@ function App() {
 
   const queryObj = new QueryClient()
 
+  const { userToken } = TokenStore();
+
   // to get getUserCart function from CartStore to use it here
   const {getUserCart} = CartStore()
 
@@ -86,10 +89,14 @@ function App() {
   // This avoids calling getUserCart() every time a component (like ShopCart) mounts and 
   // avoids calling getWishlist() every time a component (like Wishkist) mounts
 
-  useEffect( () => {
-    getUserCart(),
-    getWishlist()
-  } , [] )
+
+    useEffect( () => {
+    if (userToken) {
+      getUserCart();
+      getWishlist();
+    }
+  }, [userToken, getUserCart, getWishlist] )
+
 
 
 

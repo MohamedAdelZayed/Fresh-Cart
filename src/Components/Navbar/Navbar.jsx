@@ -41,7 +41,7 @@ export default function Navbar() {
   
     setUserToken(null);
   
-    nav("/login");
+    nav("/login", { replace: true });
   
   }
 

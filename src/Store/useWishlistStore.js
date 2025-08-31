@@ -28,7 +28,6 @@ export const WishlistStore = create( (set , get) => ({
         myAxios.get('wishlist')
 
         .then( (res) => {
-            // console.log(res)
 
             set({
                 WishlistProducts : res.data.data,
