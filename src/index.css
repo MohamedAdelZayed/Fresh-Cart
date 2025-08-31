@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Apply base active styles everywhere (mobile + desktop) */
+.active {
+  color: #10B981;
+  transition: all 0.2s;
+}
+
+/* Only add border-bottom from md and above */
+@media (min-width: 768px) {
+  .active {
+    border-bottom: 2px solid #10B981;
+  }
+}
