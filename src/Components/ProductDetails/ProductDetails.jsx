@@ -6,13 +6,17 @@ import { myAxios } from "../../Api/myAxios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import LoaderScreen from './../LoaderScreen/LoaderScreen';
-import Slider from "react-slick";
 import useProducts from "../../CustomHooks/useProducts";
 import { WishlistStore } from "../../Store/useWishlistStore";
 import { CartStore } from "../../Store/useCartStore";
 import { FaHeart } from "react-icons/fa";
 import { RiLoader2Line } from "react-icons/ri";
 import { Helmet } from "react-helmet";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 
 export default function ProductDetails() {
@@ -30,16 +34,7 @@ export default function ProductDetails() {
   
   const {addToWishlist , removeItem} = WishlistStore()
 
-   var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay:true,
-    autoplaySpeed: 1500,
-  };
-
+ 
 
   // To Get ProductId From Url
   const {productId} = useParams()
@@ -52,8 +47,6 @@ export default function ProductDetails() {
   myAxios.get(`products/${productId}`)
   
   .then( (res) => {
-
-    // console.log(res.data.data)
 
     setisLoading(false)
 
@@ -142,29 +135,44 @@ export default function ProductDetails() {
       <div className = "flex flex-col md:flex-row items-center mb-5">
 
         {/* Product Image */}
-        <div className =  "w-full md:w-1/4 ">
+<div className="w-full md:w-1/4">
+  
+  <Swiper
+  
+   slidesPerView={1}
 
+   loop = {true}
+   
+   autoplay={{
+      delay: 1500,
+      disableOnInteraction: false,
+    }}
+   
+    pagination={{ clickable: true }}
+   
+    modules={[Autoplay, Pagination]}
+   
+    className="w-full"
+  
+  >
+    {prodduct?.images?.map((phot, index) => (
+  
+    <SwiperSlide key={index}>
 
-           <Slider {...settings}>
+        <img
+          src={phot}
+          alt={prodduct?.title}
+          className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover rounded-lg"
+        />
 
-          {
-            prodduct?.images?.map( (phot) => {
-              
-              return(
-                <>
+      </SwiperSlide>
+    
+    ))}
+  
+  </Swiper>
 
-                <img src = {phot} alt = {prodduct?.title} className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover rounded-lg" /> 
-                
-                </>
-              )
-            } )
+</div>
 
-          }
-
-          </Slider>
-
-        
-        </div>
 
         {/* ProductInfo */}
         <div className=" w-full bg-re-500 md:w-3/4  py-5 px-5.5 text-left">

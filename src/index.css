@@ -12,3 +12,18 @@
     border-bottom: 2px solid #10B981;
   }
 }
+
+
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 20px; /* add space below slider */
+  text-align: center;
+}
+
+
+/* Active dot */
+.swiper-pagination-bullet-active {
+  background-color: #15d394 !important; /* Tailwind emerald-500 */
+}
+
+

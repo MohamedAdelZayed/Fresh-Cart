@@ -1,52 +1,88 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 
-import phot1 from '../../assets/E-Commerce assets/images/slider-image-3.jpeg'
-import phot2 from '../../assets/E-Commerce assets/images/slider-image-2.jpeg'
-import phot3 from '../../assets/E-Commerce assets/images/slider-image-1.jpeg'
-import Slider from 'react-slick';
+import "swiper/css";
+import "swiper/css/pagination";
 
+import phot1 from "../../assets/E-Commerce assets/images/slider-image-3.jpeg";
+import phot2 from "../../assets/E-Commerce assets/images/slider-image-2.jpeg";
+import phot3 from "../../assets/E-Commerce assets/images/slider-image-1.jpeg";
 
 export default function MainSlider() {
-
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay : true,
-    autoplaySpeed:2000,
-    arrows: false,
-
-  };
-
-
+  
   return (
 
-    <>
+    <div className="flex gap-1 px0.5 h-[200px] md:h-[400px]">
+    
+      {/* Main big slider */}    
+      <div className="w-3/4 h-full relative">
+    
+        <Swiper
 
-      <div className = "flex my20">
+          slidesPerView={1}
 
-        <div className = "w-3/4">
-
-          <Slider {...settings}>
-            <img src = {phot1} className='h-[200px] md:h-[400px] w-full'  />
-            <img src = {phot1} className='h-[200px] md:h-[400px] w-full'  />
-            <img src = {phot1} className='h-[200px] md:h-[400px] w-full'  />
-          </Slider>
+          loop = {true}
         
-        </div>
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+      
+        
+          pagination={{ clickable: true }}
+        
+          modules={[Autoplay, Pagination]}
+        
+          className="w-full h-full"
+        >
 
-        <div className = "w-1/4 flex flex-col">
+          <SwiperSlide>
+            <img
+              src={phot1}
+              className="w-full h-full rounded-sm"
+              alt="slide1"
+            />
+          </SwiperSlide>
 
-          <img src = {phot2} className = 'h-[100px] md:h-[200px] w-full' />
+          <SwiperSlide>
+            <img
+              src={phot2}
+              className="w-full h-full  rounded-sm"
+              alt="slide2"
+            />
+          </SwiperSlide>
 
-          <img src = {phot3} className = 'h-[100px] md:h-[200px] w-full' />
-
-        </div>
+          <SwiperSlide>
+            <img
+              src={phot3}
+              className="w-full h-full rounded-sm"
+              alt="slide3"
+            />
+          </SwiperSlide>
+        
+        </Swiper>
 
       </div>
 
-    </>
+      {/* Right stacked images */}
+      <div className="w-1/4 flex flex-col gap-2 h-full">
+        
+        <img
+          src={phot2}
+          className="h-1/2 w-full object-cover rounded-sm"
+          alt="side1"
+        />
+        
+        <img
+          src={phot3}
+          className="h-1/2 w-full object-cover rounded-sm"
+          alt="side2"
+        />
+      
+      </div>
+    
+    </div>
+  
+);
 
-)
 }
