@@ -13,12 +13,12 @@ export default function Footer() {
   return (
     <>
     
-    <footer className="w-full bg-[#f5f5fac9]  text-left text-black z-40 font-bold px-4 py-4 shadow-inner">
+    <footer className="w-full bg-[#f5f5fac9]  text-left text-black z-40 font-bold px-4 py-3.5 shadow-inner">
 
 
         <h1 className="text-xl sm:text-2xl font-extrabold">Get The FreshCart app</h1>
 
-        <p className="my-3 text-slate-600 text-sm sm:text-base font-normal">
+        <p className="my-2.5 text-slate-600 text-sm sm:text-base font-normal">
           We Will Send You A Link, Open It On Your Phone To Download The App..
         </p>
 
