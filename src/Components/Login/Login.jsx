@@ -82,18 +82,22 @@ export default function Login() {
       </Helmet>
     
 
+      <div className="mb-3">
+        <FormTitle title = {"Login Now"} />
+      </div>
    
-      <FormTitle title = {"Login Now"} />
 
            
 
-<form onSubmit = {formikk.handleSubmit}  className="max-w-2xl mx-auto px-8">
+<form onSubmit = {formikk.handleSubmit}  className="max-w-2xl mx-auto px-2 sm:px-8 bg-re-200">
 
 
     <div class="relative z-0 w-full mb-5 group">
   
       <input 
-      
+
+      autoComplete='email'
+
       id="email"
 
       name="email"
@@ -202,7 +206,7 @@ export default function Login() {
 </Link>
 
 {/* people image */}
-<div className = "mt-5">
+<div>
   <img src = {loginPhoto} alt="loginPhoto" className = " w-full md:w-1/2 mx-auto" />
 </div>
 

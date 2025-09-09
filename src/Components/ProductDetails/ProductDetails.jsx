@@ -298,6 +298,11 @@ export default function ProductDetails() {
         <div className = "grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2">
 
           {
+
+            relatedProducts?.length > 0 
+            
+            ?
+
             relatedProducts?.map( (prod) => {
               
               return(
@@ -372,6 +377,15 @@ export default function ProductDetails() {
              </>
               )
             }  )
+
+            :
+
+             (
+            <div className="col-span-full text-center py-10 text-gray-600">
+              No products available Now.
+            </div>
+           )
+
           }
 
         </div>

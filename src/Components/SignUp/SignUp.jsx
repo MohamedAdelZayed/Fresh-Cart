@@ -96,7 +96,7 @@ export default function SignUp() {
     
                
     
-    <div className = "flex flex-col md:flex-row gap-x-2 py-4 px-9 md:px-0 w-full md:w-[88%] mx-auto md:ml-20 lg:ml-40">
+    <div className = "flex flex-col md:flex-row gap-x-2 py-4 px-2 md:px-0 w-full md:w-[88%] mx-auto md:ml-20 lg:ml-40">
 
 <form onSubmit = {formikk.handleSubmit} className = "w-full md:w-1/2" >
 
