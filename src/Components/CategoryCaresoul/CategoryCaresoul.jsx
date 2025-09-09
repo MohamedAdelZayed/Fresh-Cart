@@ -34,7 +34,7 @@ export default function CategoryCaresoul() {
         loop = {true}
         
         autoplay={{
-          delay: 1900,
+          delay: 2000,
           disableOnInteraction: false,
         }}
     
