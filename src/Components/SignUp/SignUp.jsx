@@ -92,9 +92,9 @@ export default function SignUp() {
          </Helmet>
 
 
-          <FormTitle title = {'Register Now'} />
-    
-               
+         <FormTitle title = {'Register Now'} />
+
+            
     
     <div className = "flex flex-col md:flex-row gap-x-2 py-4 px-2 md:px-0 w-full md:w-[88%] mx-auto md:ml-20 lg:ml-40">
 

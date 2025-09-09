@@ -5,9 +5,9 @@ import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 export default function Layout() {
 
-  const pathName = useLocation()
+  const {pathname} = useLocation()
 
-  console.log(pathName)
+  console.log(pathname)
 
   return (
     <>
@@ -16,7 +16,7 @@ export default function Layout() {
 
       <Navbar />
 
- <div className="flex-1 mt-4 py-19 px-3.5 md:px-11 lg:px-12">
+ <div className = {`flex-1 mt-4 ${pathname === "/login" || pathname === "/signup" ? 'pt-19 pb-10 sm:pb-5' : 'pt-19 pb-19' } px-3.5 md:px-11 lg:px-12`}>
 
   {/* ScrollToTop stays here */}
   <ScrollToTop />

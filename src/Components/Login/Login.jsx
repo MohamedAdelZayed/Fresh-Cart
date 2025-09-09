@@ -82,7 +82,7 @@ export default function Login() {
       </Helmet>
     
 
-      <div className="mb-5">
+      <div className = " mb-6 sm:!mb-8">
         <FormTitle title = {"Login Now"} />
       </div>
    
