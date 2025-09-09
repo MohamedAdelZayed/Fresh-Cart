@@ -82,14 +82,14 @@ export default function Login() {
       </Helmet>
     
 
-      <div className="mb-3">
+      <div className="mb-5">
         <FormTitle title = {"Login Now"} />
       </div>
    
 
            
 
-<form onSubmit = {formikk.handleSubmit}  className="max-w-2xl mx-auto px-2 sm:px-8 bg-re-200">
+<form onSubmit = {formikk.handleSubmit}  className="max-w-2xl mx-auto px-2 sm:px-8">
 
 
     <div class="relative z-0 w-full mb-5 group">
