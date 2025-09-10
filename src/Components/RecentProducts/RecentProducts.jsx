@@ -20,7 +20,7 @@ export default function RecentProducts() {
 
   const {addToCart , addLoad} = CartStore()
 
-  const {addToWishlist , removeItem} = WishlistStore()
+  const {addToWishlist , removeItem , WishlistProducts} = WishlistStore()
 
 
 
@@ -152,30 +152,10 @@ export default function RecentProducts() {
 
 
               {
-
-                localStorage.getItem(`isWishlist${prod._id}`) === "true"
-
-                ?
-
-                //  the heart icon that appear when product added to wishlist
-                 <FaHeart
-                 
-                 onClick = { ()=> removeItem(prod._id) }
-
-                 className = "text-emerald-400  text-[22px] cursor-pointer"  />
-
-                 :
-
-                //  the heart icon that appear when product isn't added to wishlist
-                 <FaRegHeart
-                 
-                 onClick = { () => handleAddToWishlist(prod._id)  }
-
-                 className = "text-emerald-400  text-[22px] cursor-pointer" 
-                 />
-
-                
-              }
+  WishlistProducts.some(p => p._id === prod._id)
+  ? <FaHeart onClick={() => removeItem(prod._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+  : <FaRegHeart onClick={() => handleAddToWishlist(prod._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+}
                                           
               </div>
 

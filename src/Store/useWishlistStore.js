@@ -60,8 +60,6 @@ export const WishlistStore = create( (set , get) => ({
 
         .then( () => {
 
-            // console.log(res)
-
             localStorage.setItem(`isWishlist${id.productId}` , true )
 
             toast.success("Product Added To Wishlist")
