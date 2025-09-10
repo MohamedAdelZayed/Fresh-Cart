@@ -59,7 +59,7 @@ export default function Orders() {
     </Helmet>
 
 
-    <div className="max-w-7xl mx-auto  lg:p-4 bg-white min-h-screen">
+    <div className="max-w-7xl mx-auto  lg:p-4 bg-white">
 
       {
 
