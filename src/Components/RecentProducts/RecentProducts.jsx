@@ -98,7 +98,7 @@ export default function RecentProducts() {
 
                           <p className="text-base font-bold text-gray-700 ">
                             {prod.priceAfterDiscount} <span className=" font-semibold text-sm">EGP</span>
-                             <span className="text-gray-500 md:text-sm text-xs font-semibold line-through">{prod.price} </span>
+                             <span className="text-gray-500 md:text-sm text-xs font-semibold line-through ml-1">{prod.price} </span>
                           </p>
 
                           </>

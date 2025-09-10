@@ -52,7 +52,7 @@ export default function Navbar() {
     <>
       <header className=" fixed left-0 top-0 right-0 flex border-b border-gray-200 bg-[#F7F7FB] min-h-[65px] tracking-wide  z-50">
   
-        <div className="px-2 md:px-7 flex items-center justify-between w-full overflow-hidden">
+        <div className="pl-2 pr-1 md:px-4.5 flex items-center justify-between w-full overflow-hidden">
 
 
           {/* Logo */}
@@ -214,7 +214,7 @@ export default function Navbar() {
                     className="cursor-pointer"
                   >
              
-                    <RiMenu3Fill className="w-7 h-7" />
+                    <RiMenu3Fill className=" w-7 h-7" />
              
                   </button>
               
