@@ -143,13 +143,13 @@ export default function Navbar() {
           
              <div className="flex space-x-3 items-center">
              
-                <Link to="/login" className="text-emerald-500 font-extrabold">
+                <NavLink to="/login" className=" !border-none font-extrabold">
                   Login
-                </Link>
+                </NavLink>
              
-                <Link to="/signup" className="text-emerald-500 font-extrabold">
+                <NavLink to="/signup" className=" !border-none font-extrabold">
                   Register
-                </Link>
+                </NavLink>
              
               </div>
             
