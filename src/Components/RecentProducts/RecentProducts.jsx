@@ -16,7 +16,7 @@ import { WishlistStore } from "../../Store/useWishlistStore";
 export default function RecentProducts() {
 
 
-  const {data , isLoading } = useProducts("-title")
+  const {data , isLoading } = useProducts("title")
 
   const {addToCart , addLoad} = CartStore()
 
