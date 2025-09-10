@@ -152,9 +152,9 @@ export default function RecentProducts() {
 
 
               {
-  WishlistProducts.some(p => p._id === prod._id)
-  ? <FaHeart onClick={() => removeItem(prod._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
-  : <FaRegHeart onClick={() => handleAddToWishlist(prod._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+  WishlistProducts?.some(p => p?._id === prod?._id)
+  ? <FaHeart onClick={() => removeItem(prod?._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+  : <FaRegHeart onClick={() => handleAddToWishlist(prod?._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
 }
                                           
               </div>

@@ -32,7 +32,7 @@ export default function ProductDetails() {
 
    const {addToCart , addLoad} = CartStore()
   
-  const {addToWishlist , removeItem} = WishlistStore()
+  const {addToWishlist , removeItem , WishlistProducts} = WishlistStore()
 
  
 
@@ -197,7 +197,7 @@ export default function ProductDetails() {
 
                           <p className="text-base font-bold text-gray-700 ">
                             {prodduct?.priceAfterDiscount} <span className=" font-semibold text-sm">EGP</span>
-                             <span className="text-gray-500 md:text-sm text-xs font-semibold line-through">{prodduct?.price} </span>
+                             <span className="text-gray-500 md:text-sm text-xs ml-1 font-semibold line-through">{prodduct?.price} </span>
                           </p>
 
                           </>
@@ -253,32 +253,11 @@ export default function ProductDetails() {
 
         </button>
 
-        {
-        
-            localStorage.getItem(`isWishlist${prodduct?._id}`) === "true"
-        
-             ?
-        
-            //  the heart icon that appear when product added to wishlist
-             <FaHeart
-                         
-               onClick = { ()=> removeItem(prodduct._id) }
-        
-               className = "text-emerald-400  text-[22px] cursor-pointer"  
-             />
-        
-                         :
-        
-              //  the heart icon that appear when product isn't added to wishlist
-               <FaRegHeart
-                         
-                onClick = { () => handleAddToWishlist(prodduct._id)  }
-        
-                className = "text-emerald-400  text-[22px] cursor-pointer" 
-              />
-        
-                        
-          }
+       {
+  WishlistProducts?.some(p => p?._id === prodduct?._id)
+  ? <FaHeart onClick={() => removeItem(prodduct?._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+  : <FaRegHeart onClick={() => handleAddToWishlist(prodduct?._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+}
         
 
         </div>
@@ -308,71 +287,94 @@ export default function ProductDetails() {
               return(
                 <>
                 
-           <Link to = {`/productDetails/${prod._id}`}  key = {prod.id} className="py-1 mt-4 group cursor-pointer ">
+           <div key={prod._id} className="py-1 mt-4 group cursor-pointer">
+                  
+                  <Link to={`/productDetails/${prod._id}`}>
+                    
+                    <div className=" relative rounded-md">
 
+                      <img
+                        src={prod.imageCover}
+                        alt={prod.title}
+                        className="w-full"
+                      />
 
-              <div className=" relative rounded-md">
+                      <div className="absolute left-0 top-0 bottom-0 right-0 rounded-md group-hover:bg-[#00000033] transition-all duration-300"></div>
+                    </div>
 
-              <img src = {prod.imageCover}   alt= {prod.title} className='w-full' />
+                    <h3 className="text-emerald-600 mt-2 mb-1 text-center">
+                      {prod.category.name}
+                    </h3>
 
-              <div className = "absolute left-0 top-0 bottom-0 right-0 rounded-md group-hover:bg-[#00000033] transition-all duration-300"></div>
+                    <h2 className="mb-1 font-semibold text-center mt-2">
+                      {prod.title.split(" ", 2).join(" ")}
+                    </h2>
 
-              </div>
-  
-              <h3 className ='text-emerald-600 mt-2 mb-1 text-center'> {prod.category.name} </h3>
-  
-              <h2 className ='mb-1 font-semibold text-center'> {prod.title.split(" " , 2).join(" ")} </h2>
+                    <div className="flex justify-between items-center py-2 bg-red500 my-2 px-4">
+                      
+                      <div className="flex gap-1">
+                      
+                        {prod.priceAfterDiscount ? (
+                          <>
+                            <p className="text-base font-bold text-gray-700 ">
+                              {prod.priceAfterDiscount} <span className=" font-semibold text-sm"> EGP </span>
+                             
+                              <span className="text-gray-500 md:text-sm text-xs font-semibold line-through">
+                                {prod.price}   
+                              </span>
+                           
+                            </p>
+                         
+                          </>
+                       
+                        ) : (
+                          
+                          <p className="text-base font-bold text-gray-700">
+                            {prod.price} <span className=" font-semibold text-sm">EGP</span>
+                          </p>
+                        
+                        )}
+                      
+                      </div>
+
+                      <div className="flex items-center gap-1">
+
+                        <FaStar className="text-yellow-400" /> {prod.ratingsAverage}{" "}
+                      
+                      </div>
+                    
+                    </div>
+                  
+                  </Link>
+
+                  <div className="flex justify-between items-center px-4">
               
-              <div className="bg--500 flex justify-between items-center py-2 px-4">
+                    <button
+                      onClick={() => handleAddToCart(prod._id)}
+                      className=" cursor-pointer text-white font-semibold bg-emerald-600 py-[5px] px-[14px] rounded-lg  my-2 "
+                    >
+              
+                      {addLoad === prod._id ? (
 
-                
-                  <div className="flex gap-1">
+                        <RiLoader2Line className="animate-spin w-6 h-6" />
+                      
+                      ) : (
+                      
+                        "Add To Cart"
+                      
+                      )}
+                    
+                    </button>
 
                     {
-
-                     prod.priceAfterDiscount ? (
-
-                         <>
-
-                          <p className="text-base font-bold text-gray-700 ">
-                            {prod.priceAfterDiscount} <span className=" font-semibold text-sm">EGP</span>
-                             <span className="text-gray-500 md:text-sm text-xs font-semibold line-through">{prod.price} </span>
-                          </p>
-
-                          </>
-                      )
-
-                          :
-
-                          <p className="text-base font-bold text-gray-700"> 
-                          
-                          {prod.price} <span className=" font-bold text-sm">EGP</span> 
-                          
-                          </p>
-
-                    }
-
+  WishlistProducts?.some(p => p?._id === prod?._id)
+  ? <FaHeart onClick={() => removeItem(prod?._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+  : <FaRegHeart onClick={() => handleAddToWishlist(prod?._id)} className="text-emerald-400 text-[22px] cursor-pointer" />
+}
+                  
                   </div>
                 
-
-                <div className = "flex items-center gap-1" > <FaStar className = 'text-yellow-400' /> {prod.ratingsAverage} </div>
- 
-              </div>
-
-
-              <div className="flex justify-between items-center px-4">
-
-              <button className=" btnn text-white font-semibold bg-emerald-600 py-[5px] px-[14px] rounded-lg  my-2 ">
-                  Add To Cart
-              </button>
-
-
-                 <FaRegHeart className = "text-emerald-400  text-[22px] cursor-pointer" />
-                                          
-              </div>
-  
-      
-             </Link>
+                </div>
 
              </>
               )

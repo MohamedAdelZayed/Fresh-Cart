@@ -232,9 +232,6 @@ export default function ShopCart() {
   
             <div className="flex items-start gap-4 justify-end">
 
-              <FaRegHeart className="w-4 h-4 cursor-pointer text-emerald-400 inline-block"/>
-
-
               {
                 
                 deleteLoad === prodd.product.id 
