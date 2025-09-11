@@ -16,7 +16,9 @@ import { WishlistStore } from "../../Store/useWishlistStore";
 export default function RecentProducts() {
 
 
-  const {data , isLoading } = useProducts("title")
+  const {data , isLoading } = useProducts("-ratingsAverage")
+
+  const recentData = [...(data?.data?.data || [])].reverse()
 
   const {addToCart , addLoad} = CartStore()
 
@@ -64,7 +66,7 @@ export default function RecentProducts() {
         <div className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
 
           {
-            data?.data?.data?.map( (prod) => {
+            recentData?.map( (prod) => {
               
               return(
                 <>

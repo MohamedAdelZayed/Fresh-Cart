@@ -14,7 +14,7 @@ export default function Layout() {
 
       <Navbar />
 
- <div className = {`flex-1 mt-4 ${pathname === "/login" || pathname === "/signup" ? 'pt-19 pb-13 sm:pb-1' : 'pt-19 pb-19' } px-2.5 md:px-11 lg:px-6`}>
+ <div className = {`flex-1 mt-4 ${pathname === "/login" || pathname === "/signup" ? 'pt-19 pb-13 sm:pb-6' : 'pt-19 pb-19' } px-2.5 md:px-11 lg:px-6`}>
 
   <ScrollToTop />
 
